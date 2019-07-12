@@ -23,11 +23,11 @@ namespace Jay_Gervais_CPRG200_Lab4
     {
         public OrderDetail orderDetail;
 
-        public EditOrder(string ProductID, double UnitPrice, int Quantity, double Discount)
+        public EditOrder(string ProductID, string UnitPrice, int Quantity, double Discount)
         {
             InitializeComponent();
             txtProductID.Text = ProductID;
-            txtUnitPrice.Text = UnitPrice.ToString("C");
+            txtUnitPrice.Text = UnitPrice;
             txtQuantity.Text = Quantity.ToString();
             txtDiscount.Text = Discount.ToString();
         }

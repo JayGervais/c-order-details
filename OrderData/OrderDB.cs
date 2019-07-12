@@ -16,13 +16,9 @@ namespace OrderData
             SqlConnection con = NorthwindDB.GetConnection();
             try
             {
-                string selectOrdersQuery = "SELECT OrderID, CustomerID, OrderDate, RequiredDate, ShippedDate " +
-                                           "FROM Orders";
-
-                //string selectOrdersQuery = @"SELECT Orders.OrderID, CustomerID, OrderDate, RequiredDate, ShippedDate, (UnitPrice * (1-Discount) * Quantity) as Total " +
-                //                           "FROM Orders inner join [Order Details] " +
-                //                            "ON Orders.OrderID = [Order Details].OrderID " +
-                //                            "WHERE Orders.OrderID = @OrderID";
+                string selectOrdersQuery = @"SELECT Orders.OrderID, CustomerID, OrderDate, RequiredDate, ShippedDate, (UnitPrice * (1-Discount) * Quantity) as Total " +
+                                           "FROM Orders inner join [Order Details] " +
+                                            "ON Orders.OrderID = [Order Details].OrderID";
 
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectOrdersQuery, con);
                 using (sqlDataAdapter)
@@ -43,7 +39,7 @@ namespace OrderData
             }
         }
 
-        public void ShowSelectedOrder(ListBox listbox, TextBox orderID, TextBox customerID, TextBox orderDate, TextBox requiredDate, TextBox shippedDate)
+        public void ShowSelectedOrder(ListBox listbox, TextBox orderID, TextBox customerID, TextBox orderDate, TextBox requiredDate, TextBox shippedDate, TextBox Total)
         {
             SqlConnection con = NorthwindDB.GetConnection();
             try
@@ -52,24 +48,24 @@ namespace OrderData
                                            "FROM Orders " +
                                            "WHERE OrderID = @OrderID";
 
-                //string selectOrderQuery = @"SELECT O.OrderID, CustomerID, OrderDate, RequiredDate, ShippedDate, (UnitPrice * (1-Discount) * Quantity) as Total " +
-                //                           "FROM Orders O inner join [Order Details] D " +
-                //                            "ON O.OrderID = D.OrderID " +
-                //                            "WHERE OrderID = @OrderID";
-
                 SqlCommand sqlCommand = new SqlCommand(selectOrderQuery, con);
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
                 using (sqlDataAdapter)
                 {
                     sqlCommand.Parameters.AddWithValue("@OrderID", listbox.SelectedValue);
                     DataTable OrderDataTable = new DataTable();
+
                     sqlDataAdapter.Fill(OrderDataTable);
+
+                    DateTime OrderDate = Convert.ToDateTime(OrderDataTable.Rows[0]["OrderDate"]);
+                    DateTime RequiredDate = Convert.ToDateTime(OrderDataTable.Rows[0]["RequiredDate"]);
+                    DateTime ShippedDate = Convert.ToDateTime(OrderDataTable.Rows[0]["ShippedDate"]);
 
                     orderID.Text = OrderDataTable.Rows[0]["OrderID"].ToString();
                     customerID.Text = OrderDataTable.Rows[0]["CustomerID"].ToString();
-                    orderDate.Text = OrderDataTable.Rows[0]["OrderDate"].ToString();
-                    requiredDate.Text = OrderDataTable.Rows[0]["RequiredDate"].ToString();
-                    shippedDate.Text = OrderDataTable.Rows[0]["ShippedDate"].ToString();
+                    orderDate.Text = OrderDate.ToString("MMM dd, yyyy");
+                    requiredDate.Text = RequiredDate.ToString("MMM dd, yyyy");
+                    shippedDate.Text = ShippedDate.ToString("MMM dd, yyyy");
                 }
             }
             catch (Exception ex)
@@ -97,6 +93,7 @@ namespace OrderData
                 {
                     sqlCommand.Parameters.AddWithValue("@OrderID", listbox.SelectedValue);
                     DataTable OrderDataTable = new DataTable();
+
                     sqlDataAdapter.Fill(OrderDataTable);
 
                     productID.Text = OrderDataTable.Rows[0]["ProductID"].ToString();
@@ -171,6 +168,5 @@ namespace OrderData
             }
         }
     }
-
 
 }

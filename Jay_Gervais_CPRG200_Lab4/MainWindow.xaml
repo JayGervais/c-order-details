@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListView Name="lstBoxOrders" SelectionChanged="ListSelectedOrders_Selection" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="438">
+        <ListView Name="lstBoxOrders" SelectionChanged="ListSelectedOrders_Selection" HorizontalAlignment="Left" Height="392" Margin="10,10,0,0" VerticalAlignment="Top" Width="519">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Order ID" DisplayMemberBinding="{Binding Path=OrderID}" Width="65"/>
@@ -15,36 +15,36 @@
                     <GridViewColumn Header="Order Date" DisplayMemberBinding="{Binding Path=OrderDate, StringFormat='MMM dd, yyyy'}" Width="90"/>
                     <GridViewColumn Header="Required Date" DisplayMemberBinding="{Binding Path=RequiredDate, StringFormat='MMM dd, yyyy'}" Width="90"/>
                     <GridViewColumn Header="Shipped Date" DisplayMemberBinding="{Binding Path=ShippedDate, StringFormat='MMM dd, yyyy'}" Width="90"/>
-                    <!--<GridViewColumn Header="Order Total" DisplayMemberBinding="{Binding Path=Total, StringFormat='{}{0:C}'}" Width="90"/>-->
+                    <GridViewColumn Header="Order Total" DisplayMemberBinding="{Binding Path=Total, StringFormat='C'}" Width="90"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Name="lblOrderId" Content="Order ID" HorizontalAlignment="Left" Margin="461,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
-        <Label Name="lblCustomerId" Content="Customer ID" HorizontalAlignment="Left" Margin="461,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
-        <Label Name="lblOrderDate" Content="Order Date" HorizontalAlignment="Left" Margin="461,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
-        <Label Name="lblRequiredDate" Content="Required Date" HorizontalAlignment="Left" Margin="461,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
-        <Label Name="lblshipDate" Content="Shipped Date" HorizontalAlignment="Left" Margin="461,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372" FontWeight="Bold"/>
-        <TextBox Name="txtOrderId" HorizontalAlignment="Left" Margin="553,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" IsEnabled="False"/>
-        <TextBox Name="txtCustomerID" HorizontalAlignment="Left" Margin="553,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" IsEnabled="False"/>
-        <TextBox Name="txtOrderDate" HorizontalAlignment="Left" Margin="553,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" IsEnabled="False"/>
-        <TextBox Name="txtRequiredDate" HorizontalAlignment="Left" Margin="553,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" IsEnabled="False"/>
-        <TextBox Name="dateShippedDate" HorizontalAlignment="Left" Margin="553,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" IsEnabled="False"/>
+        <Label Name="lblOrderId" Content="Order ID" HorizontalAlignment="Left" Margin="537,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
+        <Label Name="lblCustomerId" Content="Customer ID" HorizontalAlignment="Left" Margin="537,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
+        <Label Name="lblOrderDate" Content="Order Date" HorizontalAlignment="Left" Margin="537,64,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
+        <Label Name="lblRequiredDate" Content="Required Date" HorizontalAlignment="Left" Margin="537,90,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
+        <Label Name="lblshipDate" Content="Shipped Date" HorizontalAlignment="Left" Margin="537,119,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372" FontWeight="Bold"/>
+        <TextBox Name="txtOrderId" HorizontalAlignment="Left" Margin="624,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" IsEnabled="False"/>
+        <TextBox Name="txtCustomerID" HorizontalAlignment="Left" Margin="624,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" IsEnabled="False"/>
+        <TextBox Name="txtOrderDate" HorizontalAlignment="Left" Margin="624,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" IsEnabled="False"/>
+        <TextBox Name="txtRequiredDate" HorizontalAlignment="Left" Margin="624,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" IsEnabled="False"/>
+        <TextBox Name="dateShippedDate" HorizontalAlignment="Left" Margin="624,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" IsEnabled="False"/>
 
-        <Label Name="lblProductId" Content="Product ID" HorizontalAlignment="Left" Margin="461,253,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
-        <TextBox Name="txtProductID" HorizontalAlignment="Left" Margin="553,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" IsEnabled="False"/>
+        <Label Name="lblProductId" Content="Product ID" HorizontalAlignment="Left" Margin="537,252,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
+        <TextBox Name="txtProductID" HorizontalAlignment="Left" Margin="624,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" IsEnabled="False"/>
 
-        <Label Name="lblUnitPrice" Content="Unit Price" HorizontalAlignment="Left" Margin="461,284,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
-        <TextBox Name="txtUnitPrice" HorizontalAlignment="Left" Margin="553,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" IsEnabled="False"/>
+        <Label Name="lblUnitPrice" Content="Unit Price" HorizontalAlignment="Left" Margin="537,283,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
+        <TextBox Name="txtUnitPrice" HorizontalAlignment="Left" Margin="624,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" IsEnabled="False"/>
 
-        <Label Name="lblQuantity" Content="Quantity" HorizontalAlignment="Left" Margin="461,315,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
-        <TextBox Name="txtQuantity" HorizontalAlignment="Left" Margin="553,319,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" IsEnabled="False"/>
+        <Label Name="lblQuantity" Content="Quantity" HorizontalAlignment="Left" Margin="537,314,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
+        <TextBox Name="txtQuantity" HorizontalAlignment="Left" Margin="624,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" IsEnabled="False"/>
 
-        <Label Name="lblDiscount" Content="Discount" HorizontalAlignment="Left" Margin="461,346,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
-        <TextBox Name="txtDiscount" HorizontalAlignment="Left" Margin="553,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" IsEnabled="False"/>
-        <Button Name="btnShippingDate" Content="Edit Shipping Date" HorizontalAlignment="Left" Margin="553,157,0,0" VerticalAlignment="Top" Width="116" Click="BtnShippingDate_Click" RenderTransformOrigin="0.509,-0.35"/>
-        <Button Name="btnOrderDetails" Content="Edit Order Details" HorizontalAlignment="Left" Margin="553,383,0,0" VerticalAlignment="Top" Width="116" Click="BtnOrderDetails_Click"/>
-        <Label Name="lblOrderTotal" Content="Order Total" HorizontalAlignment="Left" Margin="461,202,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372" FontWeight="Bold"/>
-        <TextBox Name="txtOrderTotal" HorizontalAlignment="Left" Margin="553,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" IsEnabled="False" FontWeight="Bold"/>
+        <Label Name="lblDiscount" Content="Discount" HorizontalAlignment="Left" Margin="537,345,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
+        <TextBox Name="txtDiscount" HorizontalAlignment="Left" Margin="624,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" IsEnabled="False"/>
+        <Button Name="btnShippingDate" Content="Edit Shipping Date" HorizontalAlignment="Left" Margin="624,156,0,0" VerticalAlignment="Top" Width="116" Click="BtnShippingDate_Click" RenderTransformOrigin="0.509,-0.35"/>
+        <Button Name="btnOrderDetails" Content="Edit Order Details" HorizontalAlignment="Left" Margin="624,382,0,0" VerticalAlignment="Top" Width="116" Click="BtnOrderDetails_Click"/>
+        <Label Name="lblOrderTotal" Content="Order Total" HorizontalAlignment="Left" Margin="537,201,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372" FontWeight="Bold"/>
+        <TextBox Name="txtOrderTotal" HorizontalAlignment="Left" Margin="624,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" IsEnabled="False" FontWeight="Bold"/>
 
     </Grid>
 </Window>

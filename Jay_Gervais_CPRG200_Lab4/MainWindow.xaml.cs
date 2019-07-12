@@ -35,7 +35,7 @@ namespace Jay_Gervais_CPRG200_Lab4
         private void ListSelectedOrders_Selection(object sender, SelectionChangedEventArgs e)
         {
             OrderDB showOrders = new OrderDB();
-            showOrders.ShowSelectedOrder(lstBoxOrders, txtOrderId, txtCustomerID, txtOrderDate, txtRequiredDate, dateShippedDate);
+            showOrders.ShowSelectedOrder(lstBoxOrders, txtOrderId, txtCustomerID, txtOrderDate, txtRequiredDate, dateShippedDate, txtOrderTotal);
             showOrders.ShowOrderDetails(lstBoxOrders, txtProductID, txtUnitPrice, txtQuantity, txtDiscount);
             OrderTotal();
             btnOrderDetails.IsEnabled = true;
@@ -45,7 +45,7 @@ namespace Jay_Gervais_CPRG200_Lab4
         private void BtnOrderDetails_Click(object sender, RoutedEventArgs e)
         {
             string ProductID = txtProductID.Text;
-            double UnitPrice = Convert.ToDouble(txtUnitPrice.Text);
+            string UnitPrice = txtUnitPrice.Text;
             int Quantity = Convert.ToInt32(txtQuantity.Text);
             double Discount = Convert.ToDouble(txtDiscount.Text);
 
@@ -73,6 +73,7 @@ namespace Jay_Gervais_CPRG200_Lab4
             double Discount = Convert.ToDouble(txtDiscount.Text);
             double Total = UnitPrice * (1 - Discount) * Quantity;
             txtOrderTotal.Text = Total.ToString("C");
+            txtUnitPrice.Text = UnitPrice.ToString("C");
         }
     }
 }
