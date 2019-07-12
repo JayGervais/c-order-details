@@ -1,0 +1,24 @@
+﻿<Window x:Class="Jay_Gervais_CPRG200_Lab4.EditShippingDate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jay_Gervais_CPRG200_Lab4"
+        mc:Ignorable="d"
+        Title="EditShippingDate" Height="300" Width="375">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="147*"/>
+            <ColumnDefinition Width="220*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblShipDate" Content="Shipped Date" HorizontalAlignment="Left" Margin="32,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
+
+        <Label Content="Edit Shipped Date" HorizontalAlignment="Left" Margin="32,47,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.ColumnSpan="2"/>
+        <DatePicker Name="ShippedDatePicker" HorizontalAlignment="Left" Margin="119,122,0,0" VerticalAlignment="Top" Width="204" Grid.ColumnSpan="2"/>
+        <Button Name="btnCancelUpdate" Content="Cancel" HorizontalAlignment="Left" Margin="61.667,170,0,0" VerticalAlignment="Top" Width="74" Click="BtnCancelUpdateOrder_Click" Grid.Column="1"/>
+        <Label x:Name="lblOrderID" Content="Order ID" HorizontalAlignment="Left" Margin="32,83,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
+        <TextBox Name="txtOrderID" HorizontalAlignment="Left" Margin="119,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" IsEnabled="False" Grid.ColumnSpan="2"/>
+        <Button Name="UpdateShipping" Content="Update" HorizontalAlignment="Left" Margin="119,170,0,0" VerticalAlignment="Top" Width="75" Click="UpdateShipping_Click" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</Window>

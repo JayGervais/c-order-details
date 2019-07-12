@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jay_Gervais_CPRG200_Lab4", "Jay_Gervais_CPRG200_Lab4\Jay_Gervais_CPRG200_Lab4.csproj", "{89737CC3-16B4-4AED-9F00-30EB4AB92D10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderData", "OrderData\OrderData.csproj", "{161C3F56-6163-4FF3-86CA-D1E56F188984}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89737CC3-16B4-4AED-9F00-30EB4AB92D10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89737CC3-16B4-4AED-9F00-30EB4AB92D10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89737CC3-16B4-4AED-9F00-30EB4AB92D10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89737CC3-16B4-4AED-9F00-30EB4AB92D10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{161C3F56-6163-4FF3-86CA-D1E56F188984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{161C3F56-6163-4FF3-86CA-D1E56F188984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{161C3F56-6163-4FF3-86CA-D1E56F188984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{161C3F56-6163-4FF3-86CA-D1E56F188984}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACF2E669-7372-41C3-99E2-3BBC3F0F19C8}
+	EndGlobalSection
+EndGlobal
