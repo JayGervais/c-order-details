@@ -51,12 +51,19 @@ namespace Jay_Gervais_CPRG200_Lab4
             TextBox OrderID = txtOrderID;
             DatePicker UpdateOrder = ShippedDatePicker;
 
-            OrderDB updateShippingDate = new OrderDB();
-            updateShippingDate.UpdateShippingDate(OrderID, UpdateOrder);
+            if(UpdateOrder.SelectedDate == null)
+            {
+                MessageBox.Show("Select a date or press cancel");
+            }
+            else
+            {
+                OrderDB updateShippingDate = new OrderDB();
+                updateShippingDate.UpdateShippingDate(OrderID, UpdateOrder);
 
-            MainWindow mainWin = new MainWindow();
-            mainWin.Show();
-            this.Close();
+                MainWindow mainWin = new MainWindow();
+                mainWin.Show();
+                this.Close();
+            }
         }
     }
 }

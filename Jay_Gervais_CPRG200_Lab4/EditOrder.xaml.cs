@@ -26,6 +26,8 @@ namespace Jay_Gervais_CPRG200_Lab4
         public EditOrder(string ProductID, string UnitPrice, int Quantity, double Discount)
         {
             InitializeComponent();
+
+            // add passed values to text fields
             txtProductID.Text = ProductID;
             txtUnitPrice.Text = UnitPrice;
             txtQuantity.Text = Quantity.ToString();
@@ -34,6 +36,7 @@ namespace Jay_Gervais_CPRG200_Lab4
 
         private void BtnCancelUpdateOrder_Click(object sender, RoutedEventArgs e)
         {
+            // cancel order and return to main window
             MainWindow mainWin = new MainWindow();
             mainWin.Show();
             this.Close();
@@ -46,12 +49,22 @@ namespace Jay_Gervais_CPRG200_Lab4
             TextBox quantity = txtQuantity;
             TextBox discount = txtDiscount;
 
-            OrderDB updateOrdersDetails = new OrderDB();
-            updateOrdersDetails.UpdateOrderDetails(productID, unitPrice, quantity, discount);
+            if ( Validator.IsNonNegativeInt(productID, "Product ID") &&
+                 Validator.IsNotEmpty(productID, "Product ID") &&
+                 Validator.IsNotEmpty(unitPrice, "Unit Price") &&
+                 Validator.IsCurrency(unitPrice, "Unit Price") &&
+                 Validator.IsNotEmpty(quantity, "Quantity") &&
+                 Validator.IsNonNegativeInt(quantity, "Quantity") &&
+                 Validator.IsNotEmpty(discount, "Discount") &&
+                 Validator.IsNonNegativeDouble(discount, "Discount"))
+            {
+                OrderDB updateOrdersDetails = new OrderDB();
+                updateOrdersDetails.UpdateOrderDetails(productID, unitPrice, quantity, discount);
 
-            MainWindow mainWin = new MainWindow();
-            mainWin.Show();
-            this.Close(); 
+                MainWindow mainWin = new MainWindow();
+                mainWin.Show();
+                this.Close();
+            }
         }
     }
 }

@@ -59,13 +59,20 @@ namespace OrderData
 
                     DateTime OrderDate = Convert.ToDateTime(OrderDataTable.Rows[0]["OrderDate"]);
                     DateTime RequiredDate = Convert.ToDateTime(OrderDataTable.Rows[0]["RequiredDate"]);
-                    DateTime ShippedDate = Convert.ToDateTime(OrderDataTable.Rows[0]["ShippedDate"]);
-
                     orderID.Text = OrderDataTable.Rows[0]["OrderID"].ToString();
                     customerID.Text = OrderDataTable.Rows[0]["CustomerID"].ToString();
                     orderDate.Text = OrderDate.ToString("MMM dd, yyyy");
                     requiredDate.Text = RequiredDate.ToString("MMM dd, yyyy");
-                    shippedDate.Text = ShippedDate.ToString("MMM dd, yyyy");
+
+                    if (shippedDate.Text == null)
+                    {
+                        shippedDate.Text = "";
+                    }
+                    else
+                    {
+                        DateTime ShippedDate = Convert.ToDateTime(OrderDataTable.Rows[0]["ShippedDate"]);
+                        shippedDate.Text = ShippedDate.ToString("MMM dd, yyyy");
+                    }
                 }
             }
             catch (Exception ex)
@@ -96,10 +103,12 @@ namespace OrderData
 
                     sqlDataAdapter.Fill(OrderDataTable);
 
+                    string Discount = Convert.ToString(OrderDataTable.Rows[0]["Discount"]);
+
                     productID.Text = OrderDataTable.Rows[0]["ProductID"].ToString();
                     unitPrice.Text = OrderDataTable.Rows[0]["UnitPrice"].ToString();
                     quantity.Text = OrderDataTable.Rows[0]["Quantity"].ToString();
-                    discount.Text = OrderDataTable.Rows[0]["Discount"].ToString();
+                    discount.Text = Discount;
                 }
             }
             catch (Exception ex)

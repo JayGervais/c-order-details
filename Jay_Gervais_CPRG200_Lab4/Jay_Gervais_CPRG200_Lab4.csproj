@@ -60,6 +60,7 @@
     <Compile Include="EditOrder.xaml.cs">
       <DependentUpon>EditOrder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Validator.cs" />
     <Page Include="EditShippingDate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
