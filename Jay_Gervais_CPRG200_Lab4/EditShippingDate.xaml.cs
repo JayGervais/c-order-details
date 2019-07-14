@@ -20,11 +20,13 @@ namespace Jay_Gervais_CPRG200_Lab4
     /// </summary>
     public partial class EditShippingDate : Window
     {
-        public EditShippingDate(string OrderID, string ShippedDate)
+        public EditShippingDate(string OrderID, string ShippedDate, string OrderDate)
         {
             InitializeComponent();
 
             txtOrderID.Text = OrderID;
+            txtOrderDate.Text = OrderDate;
+
             if (ShippedDate == null)
             {
                 ShippedDatePicker.SelectedDate = null;
@@ -50,10 +52,15 @@ namespace Jay_Gervais_CPRG200_Lab4
         {
             TextBox OrderID = txtOrderID;
             DatePicker UpdateOrder = ShippedDatePicker;
+            string OrderDate = txtOrderDate.Text;
 
             if(UpdateOrder.SelectedDate == null)
             {
                 MessageBox.Show("Select a date or press cancel");
+            }
+            else if (Convert.ToDateTime(ShippedDatePicker.SelectedDate).Ticks < Convert.ToDateTime(OrderDate).Ticks)
+            {
+                MessageBox.Show("Shipped date must be later than order date");
             }
             else
             {

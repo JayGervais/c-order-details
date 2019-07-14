@@ -11,14 +11,16 @@
             <ColumnDefinition Width="147*"/>
             <ColumnDefinition Width="220*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="lblShipDate" Content="Shipped Date" HorizontalAlignment="Left" Margin="32,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
+        <Label x:Name="lblShipDate" Content="Shipped Date" HorizontalAlignment="Left" Margin="33,147,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
 
-        <Label Content="Edit Shipped Date" HorizontalAlignment="Left" Margin="32,47,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.ColumnSpan="2"/>
-        <DatePicker Name="ShippedDatePicker" HorizontalAlignment="Left" Margin="119,122,0,0" VerticalAlignment="Top" Width="204" Grid.ColumnSpan="2"/>
-        <Button Name="btnCancelUpdate" Content="Cancel" HorizontalAlignment="Left" Margin="61.667,170,0,0" VerticalAlignment="Top" Width="74" Click="BtnCancelUpdateOrder_Click" Grid.Column="1"/>
-        <Label x:Name="lblOrderID" Content="Order ID" HorizontalAlignment="Left" Margin="32,83,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
-        <TextBox Name="txtOrderID" HorizontalAlignment="Left" Margin="119,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" IsEnabled="False" Grid.ColumnSpan="2"/>
-        <Button Name="UpdateShipping" Content="Update" HorizontalAlignment="Left" Margin="119,170,0,0" VerticalAlignment="Top" Width="75" Click="UpdateShipping_Click" Grid.ColumnSpan="2"/>
+        <Label Content="Edit Shipped Date" HorizontalAlignment="Left" Margin="33,41,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.ColumnSpan="2"/>
+        <DatePicker Name="ShippedDatePicker" HorizontalAlignment="Left" Margin="120,149,0,0" VerticalAlignment="Top" Width="204" Grid.ColumnSpan="2"/>
+        <Button Name="btnCancelUpdate" Content="Cancel" HorizontalAlignment="Left" Margin="63,197,0,0" VerticalAlignment="Top" Width="74" Click="BtnCancelUpdateOrder_Click" Grid.Column="1"/>
+        <Label x:Name="lblOrderID" Content="Order ID" HorizontalAlignment="Left" Margin="33,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
+        <TextBox Name="txtOrderID" HorizontalAlignment="Left" Margin="120,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" IsEnabled="False" Grid.ColumnSpan="2"/>
+        <Button Name="UpdateShipping" Content="Update" HorizontalAlignment="Left" Margin="120,197,0,0" VerticalAlignment="Top" Width="75" Click="UpdateShipping_Click" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblOrderID_Copy" Content="Order Date" HorizontalAlignment="Left" Margin="33,112,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,-0.372"/>
+        <TextBox x:Name="txtOrderDate" HorizontalAlignment="Left" Margin="120,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" IsEnabled="False" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

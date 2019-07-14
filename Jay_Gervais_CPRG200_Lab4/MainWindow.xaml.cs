@@ -72,8 +72,9 @@ namespace Jay_Gervais_CPRG200_Lab4
             // create variables
             string OrderID = txtOrderId.Text;
             string ShippedDate = dateShippedDate.Text;
+            string OrderDate = txtOrderDate.Text;
             // pass variables to EditShippingDate function
-            EditShippingDate editShippingDate = new EditShippingDate(OrderID, ShippedDate);
+            EditShippingDate editShippingDate = new EditShippingDate(OrderID, ShippedDate, OrderDate);
             // show edit window
             editShippingDate.Show();
             this.Close();

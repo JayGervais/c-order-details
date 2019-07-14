@@ -56,17 +56,36 @@ namespace OrderData
                     DataTable OrderDataTable = new DataTable();
 
                     sqlDataAdapter.Fill(OrderDataTable);
-
-                    DateTime OrderDate = Convert.ToDateTime(OrderDataTable.Rows[0]["OrderDate"]);
-                    DateTime RequiredDate = Convert.ToDateTime(OrderDataTable.Rows[0]["RequiredDate"]);
                     orderID.Text = OrderDataTable.Rows[0]["OrderID"].ToString();
                     customerID.Text = OrderDataTable.Rows[0]["CustomerID"].ToString();
-                    orderDate.Text = OrderDate.ToString("MMM dd, yyyy");
-                    requiredDate.Text = RequiredDate.ToString("MMM dd, yyyy");
-
-                    if (shippedDate.Text == null)
+                                       
+                    if (OrderDataTable.Rows[0]["OrderDate"] == DBNull.Value)
                     {
-                        shippedDate.Text = "";
+                        shippedDate.Text = "Choose a date";
+                    }
+                    else
+                    {
+                        DateTime OrderDate = Convert.ToDateTime(OrderDataTable.Rows[0]["OrderDate"]);
+                        orderDate.Text = OrderDate.ToString("MMM dd, yyyy");
+                    }
+
+                    if (OrderDataTable.Rows[0]["RequiredDate"] == DBNull.Value)
+                    {
+                        shippedDate.Text = "Choose a date";
+                    }
+                    else
+                    {
+                        DateTime RequiredDate = Convert.ToDateTime(OrderDataTable.Rows[0]["RequiredDate"]);
+                        requiredDate.Text = RequiredDate.ToString("MMM dd, yyyy");
+                    }
+
+                    if (OrderDataTable.Rows[0]["ShippedDate"] == DBNull.Value)
+                    {
+                        shippedDate.Text = "Choose a date";
+                    }
+                    else if (Convert.ToDateTime(OrderDataTable.Rows[0]["ShippedDate"]).Ticks < Convert.ToDateTime(OrderDataTable.Rows[0]["OrderDate"]).Ticks)
+                    {
+                        shippedDate.Text = "Shipped date must be later than order date";
                     }
                     else
                     {
