@@ -37,20 +37,32 @@ namespace Jay_Gervais_CPRG200_Lab4
             // enable buttons based on user interaction
             btnOrderDetails.IsEnabled = false;
             btnShippingDate.IsEnabled = false;
+            lstBoxProductIDs.IsEnabled = false;
         } 
 
         private void ListSelectedOrders_Selection(object sender, SelectionChangedEventArgs e)
         {
+            lstBoxProductIDs.ItemsSource = null;
+            lstBoxProductIDs.Items.Clear();
+            txtOrderId.Clear();
+            txtCustomerID.Clear();
+            txtOrderDate.Clear();
+            txtRequiredDate.Clear();
+            dateShippedDate.Clear();
+            txtProductID.Clear();
+            txtUnitPrice.Clear();
+            txtQuantity.Clear();
+            txtDiscount.Clear();
+            txtOrderTotal.Clear();
+
             OrderDB showOrders = new OrderDB();
             // show data from orders when selected in listbox
-            showOrders.ShowSelectedOrder(lstBoxOrders, txtOrderId, txtCustomerID, txtOrderDate, txtRequiredDate, dateShippedDate, txtOrderTotal); 
-            // show order details
-            showOrders.ShowOrderDetails(lstBoxOrders, txtProductID, txtUnitPrice, txtQuantity, txtDiscount);
-            // call order total function
-            OrderTotal();
+            showOrders.ShowSelectedOrder(lstBoxOrders, txtOrderId, txtCustomerID, txtOrderDate, txtRequiredDate, dateShippedDate);
             // enable buttons
             btnOrderDetails.IsEnabled = true;
             btnShippingDate.IsEnabled = true;
+            lstBoxProductIDs.IsEnabled = true;
+            showOrders.GetProductIDs(lstBoxOrders, lstBoxProductIDs);
         }
 
         private void BtnOrderDetails_Click(object sender, RoutedEventArgs e)
@@ -80,15 +92,11 @@ namespace Jay_Gervais_CPRG200_Lab4
             this.Close();
         }
 
-        private void OrderTotal()
+        private void LstBoxProductIDs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // order total function calculates individual orders from text field values
-            double UnitPrice = Convert.ToDouble(txtUnitPrice.Text);
-            int Quantity = Convert.ToInt32(txtQuantity.Text);
-            double Discount = Convert.ToDouble(txtDiscount.Text);
-            double Total = UnitPrice * (1 - Discount) * Quantity;
-            txtOrderTotal.Text = Total.ToString("C");
-            txtUnitPrice.Text = UnitPrice.ToString("C");
+            OrderDB showOrderDetails = new OrderDB();
+            showOrderDetails.ShowOrderDetails(lstBoxProductIDs, txtProductID, txtUnitPrice, txtQuantity, txtDiscount, txtOrderTotal);
         }
+
     }
 }
