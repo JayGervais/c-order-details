@@ -49,7 +49,14 @@ namespace Jay_Gervais_CPRG200_Lab4
             TextBox quantity = txtQuantity;
             TextBox discount = txtDiscount;
 
-            if ( Validator.IsNonNegativeInt(productID, "Product ID") &&
+            OrderDB checkProductID = new OrderDB();
+            if (checkProductID.IsProductID(txtProductID))
+            {
+                MessageBox.Show("Product ID already exists");
+            }
+            else
+            {
+                if (Validator.IsNonNegativeInt(productID, "Product ID") &&
                  Validator.IsNotEmpty(productID, "Product ID") &&
                  Validator.IsNotEmpty(unitPrice, "Unit Price") &&
                  Validator.IsCurrency(unitPrice, "Unit Price") &&
@@ -57,14 +64,16 @@ namespace Jay_Gervais_CPRG200_Lab4
                  Validator.IsNonNegativeInt(quantity, "Quantity") &&
                  Validator.IsNotEmpty(discount, "Discount") &&
                  Validator.IsNonNegativeDouble(discount, "Discount"))
-            {
-                OrderDB updateOrdersDetails = new OrderDB();
-                updateOrdersDetails.UpdateOrderDetails(productID, unitPrice, quantity, discount);
+                {
+                    OrderDB updateOrdersDetails = new OrderDB();
+                    updateOrdersDetails.UpdateOrderDetails(productID, unitPrice, quantity, discount);
 
-                MainWindow mainWin = new MainWindow();
-                mainWin.Show();
-                this.Close();
+                    MainWindow mainWin = new MainWindow();
+                    mainWin.Show();
+                    this.Close();
+                }
             }
+  
         }
     }
 }

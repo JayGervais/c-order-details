@@ -42,26 +42,14 @@ namespace Jay_Gervais_CPRG200_Lab4
 
         private void ListSelectedOrders_Selection(object sender, SelectionChangedEventArgs e)
         {
-            lstBoxProductIDs.ItemsSource = null;
-            lstBoxProductIDs.Items.Clear();
-            txtOrderId.Clear();
-            txtCustomerID.Clear();
-            txtOrderDate.Clear();
-            txtRequiredDate.Clear();
-            dateShippedDate.Clear();
-            txtProductID.Clear();
-            txtUnitPrice.Clear();
-            txtQuantity.Clear();
-            txtDiscount.Clear();
-            txtOrderTotal.Clear();
-
+            ClearOrderDetails();
+            // enable buttons
+            btnOrderDetails.IsEnabled = false;
+            btnShippingDate.IsEnabled = true;
+            lstBoxProductIDs.IsEnabled = true;
             OrderDB showOrders = new OrderDB();
             // show data from orders when selected in listbox
             showOrders.ShowSelectedOrder(lstBoxOrders, txtOrderId, txtCustomerID, txtOrderDate, txtRequiredDate, dateShippedDate);
-            // enable buttons
-            btnOrderDetails.IsEnabled = true;
-            btnShippingDate.IsEnabled = true;
-            lstBoxProductIDs.IsEnabled = true;
             showOrders.GetProductIDs(lstBoxOrders, lstBoxProductIDs);
         }
 
@@ -94,8 +82,25 @@ namespace Jay_Gervais_CPRG200_Lab4
 
         private void LstBoxProductIDs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            btnOrderDetails.IsEnabled = true;
             OrderDB showOrderDetails = new OrderDB();
             showOrderDetails.ShowOrderDetails(lstBoxProductIDs, txtProductID, txtUnitPrice, txtQuantity, txtDiscount, txtOrderTotal);
+        }
+
+        public void ClearOrderDetails()
+        {
+            lstBoxProductIDs.ItemsSource = null;
+            lstBoxProductIDs.Items.Clear();
+            txtOrderId.Clear();
+            txtCustomerID.Clear();
+            txtOrderDate.Clear();
+            txtRequiredDate.Clear();
+            dateShippedDate.Clear();
+            txtProductID.Clear();
+            txtUnitPrice.Clear();
+            txtQuantity.Clear();
+            txtDiscount.Clear();
+            txtOrderTotal.Clear();
         }
 
     }

@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace OrderData
@@ -123,6 +124,36 @@ namespace OrderData
                     sqlCommand.Parameters.AddWithValue("@ShippedDate", UpdateOrder.SelectedDate);
                 }
                 sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public bool IsProductID(TextBox productID)
+        {
+            SqlConnection con = NorthwindDB.GetConnection();
+            try
+            {
+                string selectOrderIDQuery = @"SELECT ProductID FROM [Products] WHERE ProductID = @ProductID";
+                SqlCommand checkOrderID = new SqlCommand(selectOrderIDQuery, con);
+                con.Open();
+                checkOrderID.Parameters.AddWithValue("@ProductID", productID.Text);
+                SqlDataReader reader = checkOrderID.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {
