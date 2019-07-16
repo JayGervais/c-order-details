@@ -135,36 +135,6 @@ namespace OrderData
             }
         }
 
-        public bool IsProductID(TextBox productID)
-        {
-            SqlConnection con = NorthwindDB.GetConnection();
-            try
-            {
-                string selectOrderIDQuery = @"SELECT ProductID FROM [Products] WHERE ProductID = @ProductID";
-                SqlCommand checkOrderID = new SqlCommand(selectOrderIDQuery, con);
-                con.Open();
-                checkOrderID.Parameters.AddWithValue("@ProductID", productID.Text);
-                SqlDataReader reader = checkOrderID.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
-
         public void UpdateOrderDetails(TextBox productID, TextBox unitPrice, TextBox quantity, TextBox discount)
         {
             SqlConnection con = NorthwindDB.GetConnection();
@@ -225,7 +195,7 @@ namespace OrderData
             SqlConnection con = NorthwindDB.GetConnection();
             try
             {
-                string selectOrderDetailsQuery = @"SELECT ProductID, UnitPrice, Quantity, Discount, sum(UnitPrice * (1-Discount) * Quantity) as Total " +
+                string selectOrderDetailsQuery = @"SELECT ProductID, UnitPrice, Quantity, Discount, (UnitPrice * (1-Discount) * Quantity) as Total " +
                                                   "FROM [Order Details] " +
                                                   "WHERE ProductID = @ProductID " +
                                                   "GROUP BY ProductID, UnitPrice, Quantity, Discount";
